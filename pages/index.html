@@ -25,12 +25,17 @@ permalink: /
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <label class="switch justify-right absolute">
+                <input type="checkbox" onclick="navigateToLink()">
+                <span class="slider"></span>
+            </label>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                     <a class="nav-link" href="/about">About</a>
-                    <a class="nav-link"  href="/projects">Projects</a>
+                    <a class="nav-link" href="/projects">Projects</a>
                     <a class="nav-link" href="/contact">Contact</a>
+
                 </div>
             </div>
         </div>
@@ -42,22 +47,26 @@ permalink: /
         <div>
             <br>
             <h3 class="text-center">Home</h3>
-            <p class="">My name is Xavier Beltran. I am a currently a senior entering my final semester at the College of New Jersey, obtaining a B.S. in Computer Science and a minor in Information Systems and Technology.
-                I am actively looking for a position to transfer all of the skills learned in my coursework, as well as skills obtained during my work at Foot Locker into action.
-                My coursework has introduced me to a wide range of technologies, such as data structures, algorithms, software engineering, object oriented programming, and functional programming.
-                I also took Computer Graphics and 3-D Game Development, which introduced me to various graphics techniques and technologies, using JavaScript and WebGl, as well as Unity, to develop simple and complex applications.
-                My coursework for my minor introduced me to project management skills and concepts, excel and pivot table work, databases and SQL, as well as data analytical skills using Python and R to analyze large datasets and using clusting algorithms to interpret results.
+            <p class="">My name is Xavier Beltran. I am a currently a senior entering my final semester at the College
+                of New Jersey, obtaining a B.S. in Computer Science and a minor in Information Systems and Technology.
+                I am actively looking for a position to transfer all of the skills learned in my coursework, as well as
+                skills obtained during my work at Foot Locker into action.
+                My coursework has introduced me to a wide range of technologies, such as data structures, algorithms,
+                software engineering, object oriented programming, and functional programming.
+                I also took Computer Graphics and 3-D Game Development, which introduced me to various graphics
+                techniques and technologies, using JavaScript and WebGl, as well as Unity, to develop simple and complex
+                applications.
+                My coursework for my minor introduced me to project management skills and concepts, excel and pivot
+                table work, databases and SQL, as well as data analytical skills using Python and R to analyze large
+                datasets and using clusting algorithms to interpret results.
             </p>
             <!-- <p>Some of my interests include ... </p>
             <p>Outside of my coursework, I enjoy ... </p> -->
 
         </div>
-            <label class="switch">
-                <input type="checkbox" onclick="navigateToLink()">
-                <span class="slider"></span>
-              </label>
+
         <br>
-        </div>
+    </div>
     </div>
 
 
@@ -68,9 +77,9 @@ permalink: /
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS.load('particles-js', '/assets/json/particles.json',
-        function () {
-            console.log('particles.json loaded...');
-        });
+            function () {
+                console.log('particles.json loaded...');
+            });
     </script>
     <script>
         function navigateToLink() {
