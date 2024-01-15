@@ -25,10 +25,12 @@ permalink: /
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <label class="switch justify-right absolute">
-                <input type="checkbox" onclick="navigateToLink()">
-                <span class="slider"></span>
-            </label>
+            <div id="popover" data-bs-trigger='hover' data-bs-placement="bottom"
+                data-bs-content="Click to navigate to 3-D Portfolio!" data-bs-container="body"><label class="switch justify-right absolute">
+                    <input type="checkbox" onclick="navigateToLink()">
+                    <span class="slider"></span>
+                </label></a>
+            </div>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
