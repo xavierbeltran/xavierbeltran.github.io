@@ -3,4 +3,5 @@
 - Using GitHub Pages and Jekyll to allow for multiple pages.
 - Using Bootstrap, HTML, and JavaScript to build a very simple "first version" of a personal portfolio
 - Added some features with particle.js and CSS.
-- [https://xavierbeltran.github.io/](https://xavierbeltran.github.io/)
+- Created a slider to go from this basic portfolio to the [3-D Portfolio](https://xavierbeltran.github.io/3d-portfolio/)
+- [Visit Basic Portfolio](https://xavierbeltran.github.io/)
