@@ -14,23 +14,58 @@ permalink: /contact/
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('lc0HWDXDZAh3JAB2Y');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById('contact-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.send('service_b731waj', 'template_mm25ry5', {
+      from_name: document.getElementById('user_name').value,
+      to_name: 'Xavier',
+      from_email: document.getElementById('user_email').value,
+      to_email: 'xavier.beltran000@gmail.com',
+      message: document.getElementById('message').value,
+    }, 'lc0HWDXDZAh3JAB2Y')
+                    .then(() => {
+                        alert('Thank you. I will get back to you as soon as possible.')
+                        document.getElementById('user_name').value = '';
+                        document.getElementById('user_email').value = '';
+                        document.getElementById('message').value = '';
+                    }, (error) => {
+                        console.log(error);
+                        alert('Something went wrong.');
+                    });
+            });
+        }
+    </script>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Xavier Beltran</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div id="popover" data-bs-trigger='hover' data-bs-placement="bottom"
-                data-bs-content="Click to navigate to 3-D Portfolio!" data-bs-container="body"><label
-                    class="switch justify-right absolute">
-                    <input type="checkbox" onclick="navigateToLink()">
-                    <span class="slider"></span>
-                </label></a>
-            </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="popover" data-bs-trigger='hover' data-bs-placement="bottom"
+                    data-bs-content="Click to navigate to 3-D Portfolio!" data-bs-container="body">
+                    <label
+                        class="switch justify-right absolute">
+                        <input type="checkbox" onclick="navigateToLink()">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </a>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" href="/">Home</a>
@@ -45,23 +80,49 @@ permalink: /contact/
     <div class="container">
         <div>
             <br>
-            <h3 class="text-center">Contact</h3>
-            <p>Please feel free to contact me with potential opportunities related.</p>
-            <a href="https://github.com/xavierbeltran/" class=""><img
-                    src="../assets/images/github-symbol/github-mark.svg" alt="GitHub" width="30" height="30"></a>
-            <a href="https://github.com/xavierbeltran/" class="">https://github.com/xavierbeltran/</a>
-            <br><br>
-            <a href="https://linkedin.com/in/xavierbeltran1/" class=""><img src="../assets/images/linkedin-bw.png"
-                    alt="Linkedin" width="30" height="30"></a>
-            <a href="https://linkedin.com/in/xavierbeltran1/" class="">https://linkedin.com/in/xavierbeltran1/</a>
-            <br><br>
-            <a href="mailto:xavier.beltran000@gmail.com?subject=Let's Connect!" target="_blank" class=""><img
-                    src="../assets/images/email.png" alt="Email" width="30" height="30"></a>
-            <a href="mailto:xavier.beltran000@gmail.com?subject=Let's Connect!"
-                target="_blank">xavier.beltran000@gmail.com</a>
+            <br>
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Contact Me</h5>
+                        <h5 class="card-subtitle mb-2 text-body-secondary text-center">Let's Connect!
+                        </h5>
+                        <div class="text-center">
+                            <a href="https://github.com/xavierbeltran/" class=""><img
+                                src="../assets/images/github-symbol/github-mark.svg" alt="GitHub" width="30" height="30" id="github_popover" data-bs-trigger='hover' data-bs-placement="bottom"
+                                data-bs-content="Click to navigate to my GitHub!" data-bs-container="body"></a>
+                        <a href="https://linkedin.com/in/xavierbeltran1/" class=""><img src="../assets/images/linkedin-bw.png"
+                                alt="Linkedin" width="30" height="30" id="linkedin_popover" data-bs-trigger='hover' data-bs-placement="bottom"
+                                data-bs-content="Click to navigate to my Linkedin!" data-bs-container="body"></a>
+                        </div>
+                        <form id="contact-form">
+                            <input type="hidden" name="contact_number">
+
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Name</label>
+                                <input required type="text" id="user_name" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="What's your name?">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Email address</label>
+                                <input required type="email" id="user_email" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="What's your email?">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Message</label>
+                                <textarea required id="message" type="text" class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                    placeholder="What do you want to say?"></textarea>
+                            </div>
+                            <br>
+                            <input type="submit" value="Submit Email" class="btn btn-dark">
+                        </form>
+
+
+                    </div>
+                </div>
+
         </div>
-        <br>
-    </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -76,7 +137,11 @@ permalink: /contact/
 
     <script>
         var popover = new bootstrap.Popover(document.getElementById('popover'));
+        var github_popover = new bootstrap.Popover(document.getElementById('github_popover'));
+        var linkedin_popover = new bootstrap.Popover(document.getElementById('linkedin_popover'));
     </script>
+
+
 </body>
 
 </html>
